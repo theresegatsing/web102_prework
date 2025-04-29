@@ -245,3 +245,22 @@ firstGameContainer.appendChild(topGameElement);
 const secondTopGameElement = document.createElement("p");
 secondTopGameElement.textContent = secondGame.name;
 secondGameContainer.appendChild(secondTopGameElement);
+
+
+/* My extra implementation: A Search Bar */
+
+const searchInput = document.getElementById("search-input");
+
+searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase();
+    const gameCards = document.querySelectorAll(".game-card");
+
+    gameCards.forEach(card => {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        if (title.includes(query)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+});
